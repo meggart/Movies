@@ -292,8 +292,8 @@ const FF_LOSS_COLORSPACE = 0x0004
 const FF_LOSS_ALPHA = 0x0008
 const FF_LOSS_COLORQUANT = 0x0010
 const FF_LOSS_CHROMA = 0x0020
-# begin enum ANONYMOUS_24
-typealias ANONYMOUS_24 Uint32
+# begin enum ANONYMOUS_1
+typealias AVCodecID Uint32
 const AV_CODEC_ID_NONE = 0
 const AV_CODEC_ID_MPEG1VIDEO = 1
 const AV_CODEC_ID_MPEG2VIDEO = 2
@@ -1020,23 +1020,9 @@ const CODEC_ID_PROBE = 102400
 const CODEC_ID_MPEG2TS = 131072
 const CODEC_ID_MPEG4SYSTEMS = 131073
 const CODEC_ID_FFMETADATA = 135168
-# end enum ANONYMOUS_24
-type AVCodecDescriptor
-    id::Uint32
-    _type::Uint32
-    name::Ptr{Uint8}
-    long_name::Ptr{Uint8}
-    props::Cint
-end
-type AVCodecDescriptor
-    id::Uint32
-    _type::Uint32
-    name::Ptr{Uint8}
-    long_name::Ptr{Uint8}
-    props::Cint
-end
-# begin enum ANONYMOUS_25
-typealias ANONYMOUS_25 Uint32
+# end enum ANONYMOUS_1
+# begin enum ANONYMOUS_2
+typealias ANONYMOUS_2 Uint32
 const ME_ZERO = 1
 const ME_FULL = 2
 const ME_LOG = 3
@@ -1047,18 +1033,18 @@ const ME_HEX = 7
 const ME_UMH = 8
 const ME_TESA = 9
 const ME_ITER = 50
-# end enum ANONYMOUS_25
-# begin enum ANONYMOUS_26
-typealias ANONYMOUS_26 Cint
+# end enum ANONYMOUS_2
+# begin enum ANONYMOUS_3
+typealias ANONYMOUS_3 Cint
 const AVDISCARD_NONE = -16
 const AVDISCARD_DEFAULT = 0
 const AVDISCARD_NONREF = 8
 const AVDISCARD_BIDIR = 16
 const AVDISCARD_NONKEY = 32
 const AVDISCARD_ALL = 48
-# end enum ANONYMOUS_26
-# begin enum ANONYMOUS_27
-typealias ANONYMOUS_27 Uint32
+# end enum ANONYMOUS_3
+# begin enum ANONYMOUS_4
+typealias ANONYMOUS_4 Uint32
 const AVCOL_PRI_BT709 = 1
 const AVCOL_PRI_UNSPECIFIED = 2
 const AVCOL_PRI_BT470M = 4
@@ -1067,18 +1053,18 @@ const AVCOL_PRI_SMPTE170M = 6
 const AVCOL_PRI_SMPTE240M = 7
 const AVCOL_PRI_FILM = 8
 const AVCOL_PRI_NB = 9
-# end enum ANONYMOUS_27
-# begin enum ANONYMOUS_28
-typealias ANONYMOUS_28 Uint32
+# end enum ANONYMOUS_4
+# begin enum ANONYMOUS_5
+typealias ANONYMOUS_5 Uint32
 const AVCOL_TRC_BT709 = 1
 const AVCOL_TRC_UNSPECIFIED = 2
 const AVCOL_TRC_GAMMA22 = 4
 const AVCOL_TRC_GAMMA28 = 5
 const AVCOL_TRC_SMPTE240M = 7
 const AVCOL_TRC_NB = 8
-# end enum ANONYMOUS_28
-# begin enum ANONYMOUS_29
-typealias ANONYMOUS_29 Uint32
+# end enum ANONYMOUS_5
+# begin enum ANONYMOUS_6
+typealias ANONYMOUS_6 Uint32
 const AVCHROMA_LOC_UNSPECIFIED = 0
 const AVCHROMA_LOC_LEFT = 1
 const AVCHROMA_LOC_CENTER = 2
@@ -1087,9 +1073,9 @@ const AVCHROMA_LOC_TOP = 4
 const AVCHROMA_LOC_BOTTOMLEFT = 5
 const AVCHROMA_LOC_BOTTOM = 6
 const AVCHROMA_LOC_NB = 7
-# end enum ANONYMOUS_29
-# begin enum ANONYMOUS_30
-typealias ANONYMOUS_30 Uint32
+# end enum ANONYMOUS_6
+# begin enum ANONYMOUS_7
+typealias ANONYMOUS_7 Uint32
 const AV_AUDIO_SERVICE_TYPE_MAIN = 0
 const AV_AUDIO_SERVICE_TYPE_EFFECTS = 1
 const AV_AUDIO_SERVICE_TYPE_VISUALLY_IMPAIRED = 2
@@ -1100,21 +1086,9 @@ const AV_AUDIO_SERVICE_TYPE_EMERGENCY = 6
 const AV_AUDIO_SERVICE_TYPE_VOICE_OVER = 7
 const AV_AUDIO_SERVICE_TYPE_KARAOKE = 8
 const AV_AUDIO_SERVICE_TYPE_NB = 9
-# end enum ANONYMOUS_30
-type RcOverride
-    start_frame::Cint
-    end_frame::Cint
-    qscale::Cint
-    quality_factor::Cfloat
-end
-type AVPanScan
-    id::Cint
-    width::Cint
-    height::Cint
-    position::Ptr{Ptr{Cint}}
-end
-# begin enum ANONYMOUS_31
-typealias ANONYMOUS_31 Uint32
+# end enum ANONYMOUS_7
+# begin enum ANONYMOUS_8
+typealias ANONYMOUS_8 Uint32
 const AV_PKT_DATA_PALETTE = 0
 const AV_PKT_DATA_NEW_EXTRADATA = 1
 const AV_PKT_DATA_PARAM_CHANGE = 2
@@ -1126,496 +1100,66 @@ const AV_PKT_DATA_SUBTITLE_POSITION = 73
 const AV_PKT_DATA_MATROSKA_BLOCKADDITIONAL = 74
 const AV_PKT_DATA_WEBVTT_IDENTIFIER = 75
 const AV_PKT_DATA_WEBVTT_SETTINGS = 76
-# end enum ANONYMOUS_31
-type AVPacket
-    buf::Ptr{Cint}
-    pts::Cint
-    dts::Cint
-    data::Ptr{Cint}
-    size::Cint
-    stream_index::Cint
-    flags::Cint
-    side_data::Ptr{Void}
-    side_data_elems::Cint
-    duration::Cint
-    destruct::Ptr{Void}
-    priv::Ptr{None}
-    pos::Cint
-    convergence_duration::Cint
-end
-type AVPacket
-    buf::Ptr{Cint}
-    pts::Cint
-    dts::Cint
-    data::Ptr{Cint}
-    size::Cint
-    stream_index::Cint
-    flags::Cint
-    side_data::Ptr{Void}
-    side_data_elems::Cint
-    duration::Cint
-    destruct::Ptr{Void}
-    priv::Ptr{None}
-    pos::Cint
-    convergence_duration::Cint
-end
-# begin enum ANONYMOUS_32
-typealias ANONYMOUS_32 Uint32
+# end enum ANONYMOUS_8
+# begin enum ANONYMOUS_9
+typealias ANONYMOUS_9 Uint32
 const AV_SIDE_DATA_PARAM_CHANGE_CHANNEL_COUNT = 1
 const AV_SIDE_DATA_PARAM_CHANGE_CHANNEL_LAYOUT = 2
 const AV_SIDE_DATA_PARAM_CHANGE_SAMPLE_RATE = 4
 const AV_SIDE_DATA_PARAM_CHANGE_DIMENSIONS = 8
-# end enum ANONYMOUS_32
-# begin enum ANONYMOUS_33
-typealias ANONYMOUS_33 Uint32
+# end enum ANONYMOUS_9
+# begin enum ANONYMOUS_10
+typealias ANONYMOUS_10 Uint32
 const AV_FIELD_UNKNOWN = 0
 const AV_FIELD_PROGRESSIVE = 1
 const AV_FIELD_TT = 2
 const AV_FIELD_BB = 3
 const AV_FIELD_TB = 4
 const AV_FIELD_BT = 5
-# end enum ANONYMOUS_33
-type AVProfile
-    profile::Cint
-    name::Ptr{Uint8}
-end
-
-type AVCodec
-    name::Ptr{Uint8}
-    long_name::Ptr{Uint8}
-    _type::Uint32
-    id::Uint32
-    capabilities::Cint
-    supported_framerates::Ptr{Cint}
-    pix_fmts::Ptr{Uint32}
-    supported_samplerates::Ptr{Cint}
-    sample_fmts::Ptr{Uint32}
-    channel_layouts::Ptr{Cint}
-    max_lowres::Cint
-    priv_class::Ptr{Cint}
-    profiles::Ptr{AVProfile}
-    priv_data_size::Cint
-    next::Ptr{AVCodec}
-    init_thread_copy::Ptr{Void}
-    update_thread_context::Ptr{Void}
-    defaults::Ptr{Void}
-    init_static_data::Ptr{Void}
-    init::Ptr{Void}
-    encode_sub::Ptr{Void}
-    encode2::Ptr{Void}
-    decode::Ptr{Void}
-    close::Ptr{Void}
-    flush::Ptr{Void}
-end
-
-
-type AVCodecContext
-    av_class::Ptr{Cint}
-    log_level_offset::Cint
-    codec_type::Uint32
-    codec::Ptr{AVCodec}
-    codec_name::Ptr{Uint8}
-    codec_id::Uint32
-    codec_tag::Uint32
-    stream_codec_tag::Uint32
-    priv_data::Ptr{None}
-    internal::Ptr{AVCodecInternal}
-    opaque::Ptr{None}
-    bit_rate::Cint
-    bit_rate_tolerance::Cint
-    global_quality::Cint
-    compression_level::Cint
-    flags::Cint
-    flags2::Cint
-    extradata::Ptr{Cint}
-    extradata_size::Cint
-    time_base::Cint
-    ticks_per_frame::Cint
-    delay::Cint
-    width::Cint
-    height::Cint
-    coded_width::Cint
-    coded_height::Cint
-    gop_size::Cint
-    pix_fmt::Uint32
-    me_method::Cint
-    draw_horiz_band::Ptr{Void}
-    get_format::Ptr{Void}
-    max_b_frames::Cint
-    b_quant_factor::Cfloat
-    rc_strategy::Cint
-    b_frame_strategy::Cint
-    b_quant_offset::Cfloat
-    has_b_frames::Cint
-    mpeg_quant::Cint
-    i_quant_factor::Cfloat
-    i_quant_offset::Cfloat
-    lumi_masking::Cfloat
-    temporal_cplx_masking::Cfloat
-    spatial_cplx_masking::Cfloat
-    p_masking::Cfloat
-    dark_masking::Cfloat
-    slice_count::Cint
-    prediction_method::Cint
-    slice_offset::Ptr{Cint}
-    sample_aspect_ratio::Cint
-    me_cmp::Cint
-    me_sub_cmp::Cint
-    mb_cmp::Cint
-    ildct_cmp::Cint
-    dia_size::Cint
-    last_predictor_count::Cint
-    pre_me::Cint
-    me_pre_cmp::Cint
-    pre_dia_size::Cint
-    me_subpel_quality::Cint
-    dtg_active_format::Cint
-    me_range::Cint
-    intra_quant_bias::Cint
-    inter_quant_bias::Cint
-    slice_flags::Cint
-    xvmc_acceleration::Cint
-    mb_decision::Cint
-    intra_matrix::Ptr{Cint}
-    inter_matrix::Ptr{Cint}
-    scenechange_threshold::Cint
-    noise_reduction::Cint
-    me_threshold::Cint
-    mb_threshold::Cint
-    intra_dc_precision::Cint
-    skip_top::Cint
-    skip_bottom::Cint
-    border_masking::Cfloat
-    mb_lmin::Cint
-    mb_lmax::Cint
-    me_penalty_compensation::Cint
-    bidir_refine::Cint
-    brd_scale::Cint
-    keyint_min::Cint
-    refs::Cint
-    chromaoffset::Cint
-    scenechange_factor::Cint
-    mv0_threshold::Cint
-    b_sensitivity::Cint
-    color_primaries::AVColorPrimaries
-    color_trc::AVColorTransferCharacteristic
-    colorspace::AVColorSpace
-    color_range::AVColorRange
-    chroma_sample_location::AVChromaLocation
-    slices::Cint
-    field_order::AVFieldOrder
-    sample_rate::Cint
-    channels::Cint
-    sample_fmt::Uint32
-    frame_size::Cint
-    frame_number::Cint
-    block_align::Cint
-    cutoff::Cint
-    request_channels::Cint
-    channel_layout::Cint
-    request_channel_layout::Cint
-    audio_service_type::AVAudioServiceType
-    request_sample_fmt::Uint32
-    get_buffer::Ptr{Void}
-    release_buffer::Ptr{Void}
-    reget_buffer::Ptr{Void}
-    get_buffer2::Ptr{Void}
-    refcounted_frames::Cint
-    qcompress::Cfloat
-    qblur::Cfloat
-    qmin::Cint
-    qmax::Cint
-    max_qdiff::Cint
-    rc_qsquish::Cfloat
-    rc_qmod_amp::Cfloat
-    rc_qmod_freq::Cint
-    rc_buffer_size::Cint
-    rc_override_count::Cint
-    rc_override::Ptr{RcOverride}
-    rc_eq::Ptr{Uint8}
-    rc_max_rate::Cint
-    rc_min_rate::Cint
-    rc_buffer_aggressivity::Cfloat
-    rc_initial_cplx::Cfloat
-    rc_max_available_vbv_use::Cfloat
-    rc_min_vbv_overflow_use::Cfloat
-    rc_initial_buffer_occupancy::Cint
-    coder_type::Cint
-    context_model::Cint
-    lmin::Cint
-    lmax::Cint
-    frame_skip_threshold::Cint
-    frame_skip_factor::Cint
-    frame_skip_exp::Cint
-    frame_skip_cmp::Cint
-    trellis::Cint
-    min_prediction_order::Cint
-    max_prediction_order::Cint
-    timecode_frame_start::Cint
-    rtp_callback::Ptr{Void}
-    rtp_payload_size::Cint
-    mv_bits::Cint
-    header_bits::Cint
-    i_tex_bits::Cint
-    p_tex_bits::Cint
-    i_count::Cint
-    p_count::Cint
-    skip_count::Cint
-    misc_bits::Cint
-    frame_bits::Cint
-    stats_out::Ptr{Uint8}
-    stats_in::Ptr{Uint8}
-    workaround_bugs::Cint
-    strict_std_compliance::Cint
-    error_concealment::Cint
-    debug::Cint
-    debug_mv::Cint
-    err_recognition::Cint
-    reordered_opaque::Cint
-    hwaccel::Ptr{AVHWAccel}
-    hwaccel_context::Ptr{None}
-    error::Cint
-    dct_algo::Cint
-    idct_algo::Cint
-    bits_per_coded_sample::Cint
-    bits_per_raw_sample::Cint
-    lowres::Cint
-    coded_frame::Ptr{Cint}
-    thread_count::Cint
-    thread_type::Cint
-    active_thread_type::Cint
-    thread_safe_callbacks::Cint
-    execute::Ptr{Void}
-    execute2::Ptr{Void}
-    thread_opaque::Ptr{None}
-    nsse_weight::Cint
-    profile::Cint
-    level::Cint
-    skip_loop_filter::AVDiscard
-    skip_idct::AVDiscard
-    skip_frame::AVDiscard
-    subtitle_header::Ptr{Cint}
-    subtitle_header_size::Cint
-    error_rate::Cint
-    pkt::Ptr{AVPacket}
-    vbv_delay::Cint
-    pkt_timebase::Cint
-    codec_descriptor::Ptr{AVCodecDescriptor}
-    pts_correction_num_faulty_pts::Cint
-    pts_correction_num_faulty_dts::Cint
-    pts_correction_last_pts::Cint
-    pts_correction_last_dts::Cint
-    sub_charenc::Ptr{Uint8}
-    sub_charenc_mode::Cint
-    skip_alpha::Cint
-    seek_preroll::Cint
-end
-
-
-
-type AVHWAccel
-    name::Ptr{Uint8}
-    _type::Uint32
-    id::Uint32
-    pix_fmt::Uint32
-    capabilities::Cint
-    next::Ptr{AVHWAccel}
-    start_frame::Ptr{Void}
-    decode_slice::Ptr{Void}
-    end_frame::Ptr{Void}
-    priv_data_size::Cint
-end
-
-type AVPicture
-    data::Ptr{Cint}
-    linesize::Cint
-end
-
-# begin enum ANONYMOUS_34
-typealias ANONYMOUS_34 Uint32
+# end enum ANONYMOUS_10
+# begin enum ANONYMOUS_11
+typealias ANONYMOUS_11 Uint32
 const SUBTITLE_NONE = 0
 const SUBTITLE_BITMAP = 1
 const SUBTITLE_TEXT = 2
 const SUBTITLE_ASS = 3
-# end enum ANONYMOUS_34
-type AVSubtitleRect
-    x::Cint
-    y::Cint
-    w::Cint
-    h::Cint
-    nb_colors::Cint
-    pict::AVPicture
-    _type::AVSubtitleType
-    text::Ptr{Uint8}
-    ass::Ptr{Uint8}
-    flags::Cint
-end
-
-type AVSubtitle
-    format::Cint
-    start_display_time::Cint
-    end_display_time::Cint
-    num_rects::Uint32
-    rects::Ptr{Ptr{AVSubtitleRect}}
-    pts::Cint
-end
-
-# begin enum ANONYMOUS_35
-typealias ANONYMOUS_35 Uint32
+# end enum ANONYMOUS_11
+# begin enum ANONYMOUS_12
+typealias ANONYMOUS_12 Uint32
 const AV_PICTURE_STRUCTURE_UNKNOWN = 0
 const AV_PICTURE_STRUCTURE_TOP_FIELD = 1
 const AV_PICTURE_STRUCTURE_BOTTOM_FIELD = 2
 const AV_PICTURE_STRUCTURE_FRAME = 3
-# end enum ANONYMOUS_35
-type AVCodecParserContext
-    priv_data::Ptr{None}
-    parser::Ptr{AVCodecParser}
-    frame_offset::Cint
-    cur_offset::Cint
-    next_frame_offset::Cint
-    pict_type::Cint
-    repeat_pict::Cint
-    pts::Cint
-    dts::Cint
-    last_pts::Cint
-    last_dts::Cint
-    fetch_timestamp::Cint
-    cur_frame_start_index::Cint
-    cur_frame_offset::Array_4_Cint
-    cur_frame_pts::Array_4_Cint
-    cur_frame_dts::Array_4_Cint
-    flags::Cint
-    offset::Cint
-    cur_frame_end::Array_4_Cint
-    key_frame::Cint
-    convergence_duration::Cint
-    dts_sync_point::Cint
-    dts_ref_dts_delta::Cint
-    pts_dts_delta::Cint
-    cur_frame_pos::Array_4_Cint
-    pos::Cint
-    last_pos::Cint
-    duration::Cint
-    field_order::AVFieldOrder
-    picture_structure::AVPictureStructure
-    output_picture_number::Cint
-end
-
-type AVCodecParser
-    codec_ids::Array_5_Cint
-    priv_data_size::Cint
-    parser_init::Ptr{Void}
-    parser_parse::Ptr{Void}
-    parser_close::Ptr{Void}
-    split::Ptr{Void}
-    next::Ptr{AVCodecParser}
-end
-
-type AVBitStreamFilterContext
-    priv_data::Ptr{None}
-    filter::Ptr{AVBitStreamFilter}
-    parser::Ptr{AVCodecParserContext}
-    next::Ptr{AVBitStreamFilterContext}
-end
-
-type AVBitStreamFilter
-    name::Ptr{Uint8}
-    priv_data_size::Cint
-    filter::Ptr{Void}
-    close::Ptr{Void}
-    next::Ptr{AVBitStreamFilter}
-end
-
-# begin enum ANONYMOUS_36
-typealias ANONYMOUS_36 Uint32
+# end enum ANONYMOUS_12
+# begin enum ANONYMOUS_13
+typealias ANONYMOUS_13 Uint32
 const AV_LOCK_CREATE = 0
 const AV_LOCK_OBTAIN = 1
 const AV_LOCK_RELEASE = 2
 const AV_LOCK_DESTROY = 3
-# end enum ANONYMOUS_36
+# end enum ANONYMOUS_13
 typealias FFTSample Cfloat
-type FFTComplex
-    re::FFTSample
-    im::FFTSample
-end
-
-# begin enum ANONYMOUS_37
-typealias ANONYMOUS_37 Uint32
+# begin enum ANONYMOUS_14
+typealias ANONYMOUS_14 Uint32
 const DFT_R2C = 0
 const IDFT_C2R = 1
 const IDFT_R2C = 2
 const DFT_C2R = 3
-# end enum ANONYMOUS_37
-# begin enum ANONYMOUS_38
-typealias ANONYMOUS_38 Uint32
+# end enum ANONYMOUS_14
+# begin enum ANONYMOUS_15
+typealias ANONYMOUS_15 Uint32
 const DCT_II = 0
 const DCT_III = 1
 const DCT_I = 2
 const DST_I = 3
-# end enum ANONYMOUS_38
+# end enum ANONYMOUS_15
 const FF_DXVA2_WORKAROUND_SCALING_LIST_ZIGZAG = 1
-type dxva_context
-    decoder::Ptr{Cint}
-    cfg::Ptr{Cint}
-    surface_count::Uint32
-    surface::Ptr{Cint}
-    workaround::uint64_t
-    report_id::Uint32
-end
-type vaapi_context
-    display::Ptr{None}
-    config_id::uint32_t
-    context_id::uint32_t
-    pic_param_buf_id::uint32_t
-    iq_matrix_buf_id::uint32_t
-    bitplane_buf_id::uint32_t
-    slice_buf_ids::Ptr{uint32_t}
-    n_slice_buf_ids::Uint32
-    slice_buf_ids_alloc::Uint32
-    slice_params::Ptr{None}
-    slice_param_size::Uint32
-    slice_params_alloc::Uint32
-    slice_count::Uint32
-    slice_data::Ptr{uint8_t}
-    slice_data_size::uint32_t
-end
 const Picture = 
-type vda_context
-    decoder::VDADecoder
-    cv_buffer::CVPixelBufferRef
-    use_sync_decoding::Cint
-    width::Cint
-    height::Cint
-    format::Cint
-    cv_pix_fmt_type::OSType
-    priv_bitstream::Ptr{uint8_t}
-    priv_bitstream_size::Cint
-    priv_allocated_size::Cint
-    use_ref_buffer::Cint
-end
 const FF_API_CAP_VDPAU = 1
 const FF_API_BUFS_VDPAU = 1
 const FF_VDPAU_STATE_USED_FOR_RENDER = 1
 const FF_VDPAU_STATE_USED_FOR_REFERENCE = 2
 typealias AVVDPAU_Render2 Ptr{Void}
-type AVVDPAUContext
-    decoder::Cint
-    render::Ptr{Cint}
-    info::AVVDPAUPictureInfo
-    bitstream_buffers_allocated::Cint
-    bitstream_buffers_used::Cint
-    bitstream_buffers::Ptr{Cint}
-    render2::AVVDPAU_Render2
-end
-
-type vdpau_render_state
-    surface::Cint
-    state::Cint
-    bitstream_buffers_allocated::Cint
-    bitstream_buffers_used::Cint
-    bitstream_buffers::Ptr{Cint}
-    info::AVVDPAUPictureInfo
-end
 const LIBAVCODEC_VERSION_MAJOR = 55
 const LIBAVCODEC_VERSION_MINOR = 39
 const LIBAVCODEC_VERSION_MICRO = 101
@@ -1641,20 +1185,3 @@ const LIBAVCODEC_IDENT = "Lavc"
 # Skipping MacroDefinition: FF_API_BUFS_VDPAU(LIBAVCODEC_VERSION_MAJOR<56)
 # Skipping MacroDefinition: FF_API_VOXWARE(LIBAVCODEC_VERSION_MAJOR<56)
 const AV_XVMC_ID = 0x1DC711C0
-type xvmc_pix_fmt
-    xvmc_id::Cint
-    data_blocks::Ptr{Int16}
-    mv_blocks::Ptr{Cint}
-    allocated_mv_blocks::Cint
-    allocated_data_blocks::Cint
-    idct::Cint
-    unsigned_intra::Cint
-    p_surface::Ptr{Cint}
-    p_past_surface::Ptr{Cint}
-    p_future_surface::Ptr{Cint}
-    picture_structure::Uint32
-    flags::Uint32
-    start_mv_blocks_num::Cint
-    filled_mv_blocks_num::Cint
-    next_free_data_block_num::Cint
-end
