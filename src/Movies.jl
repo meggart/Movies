@@ -3,7 +3,6 @@ include("avcodec_common.jl")
 include("avcodec.jl")
 include("avutil/avutil_common.jl")
 include("avutil/mem.jl")
-export MPEGVideo, pushframe, finalizeVideo
 function ycbcr!(a::Array{Uint8,3},y::Array{Uint8,2},cb::Array{Uint8,2},cr::Array{Uint8,2})
     nc,width,height = size(a)
     for j=1:height,i=1:width y[i,j]=uint8(16+65.481*a[1,i,j]/256+128.553*a[2,i,j]/256+24.966*a[3,i,j]/256) end
@@ -38,9 +37,7 @@ function MPEGVideo(;width=800,height=600,fps=25,f=open("out.mpg","w"))
     codec = avcodec_find_encoder(AV_CODEC_ID_MPEG2VIDEO)
     picture = avcodec_alloc_frame()
     c= avcodec_alloc_context3(codec)
-    bit_rate=400000
-    width=size(y,1)
-    height=size(y,2)
+    bit_rate=4000000
     #Picture buffers
     y=Array(Uint8,width,height)
     cb=Array(Uint8,int(width/2),int(height/2))
@@ -52,7 +49,7 @@ function MPEGVideo(;width=800,height=600,fps=25,f=open("out.mpg","w"))
     pix_fmt=PIX_FMT_YUV420P
     setCodecProps(c,bit_rate, width, height, time_base1, time_base2, gop_size, max_b_frames, pix_fmt)
     avcodec_open2(c, codec, C_NULL)
-    outbuf_size = 1000000;
+    outbuf_size = 4000000;
     outbuf = Array(Uint8,outbuf_size)
     setPictureProps(picture, y, cb, cr, width)
     return(MPEGVideo(fps,bit_rate,width,height,outbuf_size,outbuf,gop_size,max_b_frames,codec,c,picture,(y,cb,cr),f,0))
@@ -74,6 +71,7 @@ function finalizeVideo(v::MPEGVideo)
     close(v.f)
     avcodec_close(v.context);
     av_free(v.context);
-    av_free(picture);
+    av_free(v.picture);
 end
+export MPEGVideo, pushframe, finalizeVideo
 end
